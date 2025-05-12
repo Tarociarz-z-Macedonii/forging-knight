@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu72akshjqtf6"]
+
+[ext_resource type="Texture2D" uid="uid://nkwflapy5q7n" path="res://sprites/dungeon_generator/explored.png" id="1_vyxwe"]
+
+[node name="MinimapCell" type="TextureRect"]
+texture = ExtResource("1_vyxwe")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 1.0
+offset_right = 24.0
+offset_bottom = 21.0
+expand_mode = 1

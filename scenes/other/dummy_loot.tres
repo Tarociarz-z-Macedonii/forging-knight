@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="LootTable" load_steps=5 format=3 uid="uid://q6n7oy1ek7qf"]
+
+[ext_resource type="Script" uid="uid://bgkgfa4lnryt4" path="res://scripts/resources/item_roll.gd" id="1_ggq65"]
+[ext_resource type="Resource" uid="uid://e8jec17g6tpx" path="res://resources/materials/ruby.tres" id="2_y12iv"]
+[ext_resource type="Script" uid="uid://cf8whem3tb58q" path="res://scripts/resources/loot_table.gd" id="3_d2eng"]
+
+[sub_resource type="Resource" id="Resource_ggq65"]
+script = ExtResource("1_ggq65")
+item = ExtResource("2_y12iv")
+amount = 3
+weight = 0.5
+metadata/_custom_type_script = "uid://bgkgfa4lnryt4"
+
+[resource]
+script = ExtResource("3_d2eng")
+item_rolls = Array[ExtResource("1_ggq65")]([SubResource("Resource_ggq65")])
+roll_times = 1

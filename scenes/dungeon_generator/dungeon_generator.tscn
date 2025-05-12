@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b64dra8vtboso"]
+
+[ext_resource type="Script" uid="uid://dtcg3lvh5yq3c" path="res://scripts/dungeon_generator/dungeon_generator.gd" id="1_e0kq8"]
+[ext_resource type="PackedScene" uid="uid://dqrva3jo5nkog" path="res://scenes/dungeon_generator/minimap_displayer.tscn" id="3_j06jd"]
+
+[node name="DungeonGenerator" type="Node2D"]
+script = ExtResource("1_e0kq8")
+
+[node name="MinimapDisplayer" parent="." instance=ExtResource("3_j06jd")]

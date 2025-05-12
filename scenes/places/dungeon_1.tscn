@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cicr4g0l3hasm"]
+
+[ext_resource type="PackedScene" uid="uid://b64dra8vtboso" path="res://scenes/dungeon_generator/dungeon_generator.tscn" id="1_cr43l"]
+[ext_resource type="PackedScene" uid="uid://vntnhm8hh417" path="res://scenes/player/player.tscn" id="2_kcu5y"]
+[ext_resource type="PackedScene" uid="uid://csntqod327868" path="res://scenes/UI/canvas_layer.tscn" id="3_rqehv"]
+
+[node name="Main" type="Node2D"]
+scale = Vector2(6, 6)
+
+[node name="DungeonGenerator" parent="." instance=ExtResource("1_cr43l")]
+max_num_rooms = 13
+min_num_rooms = 13
+max_x_grid = 3
+min_x_grid = -3
+max_y_grid = 3
+min_y_grid = -3
+min_chest_room_num = 2
+max_chest_room_num = 2
+min_end_rooms = 3
+
+[node name="Player" parent="." instance=ExtResource("2_kcu5y")]
+
+[node name="CanvasLayer" parent="." instance=ExtResource("3_rqehv")]

@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="VoidOrbStats" load_steps=6 format=3 uid="uid://cbtygw63hd7vb"]
+
+[ext_resource type="Script" uid="uid://csjmpjuikylf6" path="res://scripts/weapons/tier1/void_orb/void_orb.gd" id="1_h6eib"]
+[ext_resource type="Texture2D" uid="uid://ckwa168qdepct" path="res://sprites/items/weapons/tier1/void_orb/void_orb.png" id="2_2w5yx"]
+[ext_resource type="PackedScene" uid="uid://b50vh4qj0d2p5" path="res://scenes/weapons/tier_1/void_orb/void_orb_projectile.tscn" id="2_ekipu"]
+[ext_resource type="Script" uid="uid://d0ldc1ktmvfqw" path="res://scripts/weapons/tier1/void_orb/void_orb_projecitle_stats.gd" id="3_4lukm"]
+[ext_resource type="PackedScene" uid="uid://cc4sld18tk1yc" path="res://scenes/weapons/tier_1/void_orb/void_orb_projectile_2.tscn" id="3_ekipu"]
+
+[resource]
+script = ExtResource("3_4lukm")
+projectile_2_angle = 90.0
+projectile_2 = ExtResource("3_ekipu")
+custom_script = ExtResource("1_h6eib")
+damage = 6.0
+cooldown = 1.0
+projectile = ExtResource("2_ekipu")
+speed = 180.0
+critical_chance = 0.0
+critical_chance_multiplier = 2.0
+bullet_number = 1
+live_time = 2.0
+rotate_sprite = false
+auto_swing = false
+spread = 0.0
+distance_from_player = 5.0
+sprite = ExtResource("2_2w5yx")
+item_name = "Void Orb"
+description = "Fire second shot at 90 which deals critical damage"
+metadata/_custom_type_script = "uid://d0ldc1ktmvfqw"

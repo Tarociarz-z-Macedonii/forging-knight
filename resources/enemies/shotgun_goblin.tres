@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=7 format=3 uid="uid://dlvyql630ggsu"]
+
+[ext_resource type="Resource" uid="uid://cghm3pxufekmq" path="res://resources/enemies/goblin_loot.tres" id="1_hd3do"]
+[ext_resource type="Script" uid="uid://clrbaw8y5nyjp" path="res://scripts/resources/enemy_stats.gd" id="1_mwu6i"]
+[ext_resource type="Script" uid="uid://b2rngx88p2ajy" path="res://scripts/enemies/enemy_projectile.gd" id="2_hd3do"]
+[ext_resource type="Script" uid="uid://cnwne4dmwegsk" path="res://scripts/resources/projectile_stats.gd" id="3_m11ax"]
+[ext_resource type="Texture2D" uid="uid://c7ndqrab1n0o2" path="res://sprites/enemies/enemy_projectile.png" id="4_qowv1"]
+
+[sub_resource type="Resource" id="Resource_jygvf"]
+script = ExtResource("3_m11ax")
+projectile_script = ExtResource("2_hd3do")
+sprite = ExtResource("4_qowv1")
+speed = 70.0
+spread = 0.0
+damage = 10.0
+critical_chance = 0.0
+critical_chance_multiplier = 0.0
+live_time = 3.0
+rotate_sprite = false
+metadata/_custom_type_script = "uid://cnwne4dmwegsk"
+
+[resource]
+script = ExtResource("1_mwu6i")
+projectile_stats = SubResource("Resource_jygvf")
+max_health = 20.0
+speed = 160.0
+attack_cooldown_min = 4.0
+attack_cooldown_max = 5.0
+loot_table = ExtResource("1_hd3do")
+bullet_num = 4
+equal_spread = 10.0
+metadata/_custom_type_script = "uid://clrbaw8y5nyjp"

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://csntqod327868"]
+
+[ext_resource type="PackedScene" uid="uid://dgma486u8lafy" path="res://scenes/UI/debug_console/debug_console.tscn" id="1_13lb3"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="container" parent="." instance=ExtResource("1_13lb3")]
+visible = false

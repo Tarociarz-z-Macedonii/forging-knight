@@ -1,0 +1,88 @@
+[gd_scene load_steps=12 format=3 uid="uid://vntnhm8hh417"]
+
+[ext_resource type="Script" uid="uid://bxp6ywaie312n" path="res://Scripts/Player/player.gd" id="1_n6db0"]
+[ext_resource type="Texture2D" uid="uid://ch5doy1f7lwy3" path="res://Sprites/Player/Animations/PlayerWalk.png" id="2_n6db0"]
+[ext_resource type="PackedScene" uid="uid://c8sms26cr4jl4" path="res://inventory.tscn" id="3_gntrk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yk4ok"]
+atlas = ExtResource("2_n6db0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gijnf"]
+atlas = ExtResource("2_n6db0")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u60sl"]
+atlas = ExtResource("2_n6db0")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1tke"]
+atlas = ExtResource("2_n6db0")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l4x1r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yk4ok")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yk4ok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gijnf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u60sl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1tke")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cut1y"]
+size = Vector2(14, 16)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kyqiw"]
+bg_color = Color(0, 0, 0, 0.988235)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gntrk"]
+bg_color = Color(1, 0, 0.301961, 1)
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(6, 6)
+script = ExtResource("1_n6db0")
+current_speed = null
+max_hp = null
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(0.166667, 0.166667)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_l4x1r")
+animation = &"walk"
+frame_progress = 0.287088
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cut1y")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -7.0
+offset_top = -14.0
+offset_right = 7.0
+offset_bottom = -10.0
+theme_override_styles/background = SubResource("StyleBoxFlat_kyqiw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gntrk")
+show_percentage = false
+
+[node name="Inventory" parent="." instance=ExtResource("3_gntrk")]
+
+[node name="Tween" type="Node" parent="."]

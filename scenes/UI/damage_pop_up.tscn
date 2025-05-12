@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvoyyuwb7emcg"]
+
+[ext_resource type="Script" uid="uid://bdbig4jufw7sp" path="res://scripts/other/dummy/damage_pop_up.gd" id="1_7cxjv"]
+[ext_resource type="FontFile" uid="uid://du62clawr6qeb" path="res://fonts/TeenyTinyPixls.ttf" id="2_e7qki"]
+
+[sub_resource type="FontVariation" id="FontVariation_esrmk"]
+base_font = ExtResource("2_e7qki")
+
+[node name="DamagePopUp" type="Node2D"]
+script = ExtResource("1_7cxjv")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -26.0
+offset_top = -5.0
+offset_right = 27.0
+offset_bottom = 6.0
+theme_override_fonts/font = SubResource("FontVariation_esrmk")
+theme_override_font_sizes/font_size = 5
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

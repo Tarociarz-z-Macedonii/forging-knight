@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://64q4x6l64b2q"]
+
+[ext_resource type="Texture2D" uid="uid://c1m5esbxmilbu" path="res://Sprites/UI/IventorySlot.png" id="1_c24ra"]
+[ext_resource type="Script" uid="uid://bvr2sbjjyo0ud" path="res://slot.gd" id="2_khion"]
+[ext_resource type="FontFile" uid="uid://du62clawr6qeb" path="res://Fonts/TeenyTinyPixls.ttf" id="3_hiqfk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_khion"]
+texture = ExtResource("1_c24ra")
+
+[node name="Slot" type="Panel"]
+custom_minimum_size = Vector2(16, 16)
+offset_right = 20.0
+offset_bottom = 20.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_khion")
+script = ExtResource("2_khion")
+amount = null
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Amount" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = -6.0
+offset_right = 302.0
+offset_bottom = 114.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.03, 0.03)
+theme_override_fonts/font = ExtResource("3_hiqfk")
+theme_override_font_sizes/font_size = 100
+text = "64"
+horizontal_alignment = 2
+vertical_alignment = 2

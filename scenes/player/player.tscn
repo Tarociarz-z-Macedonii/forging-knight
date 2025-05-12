@@ -1,0 +1,74 @@
+[gd_scene load_steps=12 format=3 uid="uid://vntnhm8hh417"]
+
+[ext_resource type="Script" uid="uid://bxp6ywaie312n" path="res://scripts/player/player.gd" id="1_n6db0"]
+[ext_resource type="Script" uid="uid://b723mfj5fb6uo" path="res://scripts/player/camera_2d.gd" id="2_dewec"]
+[ext_resource type="Texture2D" uid="uid://ch5doy1f7lwy3" path="res://sprites/Player/animations/player_walk.png" id="2_n6db0"]
+[ext_resource type="PackedScene" uid="uid://c8sms26cr4jl4" path="res://scenes/UI/inventory/inventory.tscn" id="3_gntrk"]
+[ext_resource type="PackedScene" uid="uid://btykco3oexbsl" path="res://scenes/weapons/weapon_manager.tscn" id="5_p47bc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yk4ok"]
+atlas = ExtResource("2_n6db0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gijnf"]
+atlas = ExtResource("2_n6db0")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u60sl"]
+atlas = ExtResource("2_n6db0")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1tke"]
+atlas = ExtResource("2_n6db0")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l4x1r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yk4ok")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yk4ok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gijnf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u60sl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1tke")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cut1y"]
+size = Vector2(14, 16)
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 3
+script = ExtResource("1_n6db0")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(0.166667, 0.166667)
+script = ExtResource("2_dewec")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_l4x1r")
+animation = &"walk"
+frame_progress = 0.287088
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cut1y")
+
+[node name="Inventory" parent="." instance=ExtResource("3_gntrk")]
+
+[node name="WeaponManager" parent="." instance=ExtResource("5_p47bc")]

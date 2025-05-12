@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://ctdi4epxwspfx"]
+
+[ext_resource type="Texture2D" uid="uid://44gou4tnmhyj" path="res://sprites/decorations/dummy.png" id="1_k7e7g"]
+[ext_resource type="Script" uid="uid://cqcat8a2c2jy0" path="res://scripts/other/dummy/dummy.gd" id="1_lk4ub"]
+[ext_resource type="Resource" uid="uid://sm4hec8dvj33" path="res://scenes/other/dummy_stats.tres" id="2_ouqss"]
+[ext_resource type="FontFile" uid="uid://du62clawr6qeb" path="res://fonts/TeenyTinyPixls.ttf" id="3_6q3js"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lk4ub"]
+atlas = ExtResource("1_k7e7g")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6q3js"]
+atlas = ExtResource("1_k7e7g")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ciorf"]
+atlas = ExtResource("1_k7e7g")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s1pd3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lk4ub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6q3js")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ciorf")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lk4ub")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k7e7g"]
+size = Vector2(9, 16)
+
+[sub_resource type="FontVariation" id="FontVariation_ciorf"]
+base_font = ExtResource("3_6q3js")
+
+[node name="Dummy" type="CharacterBody2D"]
+script = ExtResource("1_lk4ub")
+stats = ExtResource("2_ouqss")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_s1pd3")
+animation = &"hit"
+frame_progress = 0.407006
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_k7e7g")
+
+[node name="Dps" type="Label" parent="."]
+offset_left = -26.0
+offset_top = -20.0
+offset_right = 25.0
+offset_bottom = -8.0
+theme_override_fonts/font = SubResource("FontVariation_ciorf")
+theme_override_font_sizes/font_size = 5
+text = "Dps:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]

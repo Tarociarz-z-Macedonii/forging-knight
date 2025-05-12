@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemStats" load_steps=3 format=3 uid="uid://e8jec17g6tpx"]
+
+[ext_resource type="Script" uid="uid://cwid6m4mqjvsx" path="res://scripts/resources/item_stats.gd" id="1_y7eyu"]
+[ext_resource type="Texture2D" uid="uid://ccj43pf0ijj14" path="res://sprites/items/materials/tier1/ruby.png" id="2_80ub0"]
+
+[resource]
+script = ExtResource("1_y7eyu")
+sprite = ExtResource("2_80ub0")
+item_name = "Ruby"
+description = "Is shiny"

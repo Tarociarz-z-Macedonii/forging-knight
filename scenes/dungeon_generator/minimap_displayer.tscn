@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqrva3jo5nkog"]
+
+[ext_resource type="Script" uid="uid://p5c0j742uq5l" path="res://scripts/dungeon_generator/minimap_displayer.gd" id="1_ptwfa"]
+
+[node name="MinimapDisplayer" type="Node2D"]
+script = ExtResource("1_ptwfa")
+
+[node name="MinimapBackground" type="Panel" parent="."]

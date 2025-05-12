@@ -1,0 +1,112 @@
+[gd_scene load_steps=14 format=3 uid="uid://bx0qrg8nokekn"]
+
+[ext_resource type="Texture2D" uid="uid://dstl2ddhfsb86" path="res://sprites/enemies/goblin_shotgun.png" id="1_am461"]
+[ext_resource type="Script" uid="uid://c302b5h8kygag" path="res://scripts/enemies/tier_1/goblin_ai.gd" id="1_p6jre"]
+[ext_resource type="Resource" uid="uid://dlvyql630ggsu" path="res://resources/enemies/shotgun_goblin.tres" id="2_ijakq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_am461"]
+atlas = ExtResource("1_am461")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6jre"]
+atlas = ExtResource("1_am461")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijakq"]
+atlas = ExtResource("1_am461")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ar3ot"]
+atlas = ExtResource("1_am461")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxgmc"]
+atlas = ExtResource("1_am461")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_am461"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_am461")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6jre")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6jre")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijakq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ar3ot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxgmc")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p6jre"]
+size = Vector2(15, 16)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ijakq"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ar3ot"]
+bg_color = Color(1, 0, 0.301961, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sxgmc"]
+size = Vector2(10, 10)
+
+[node name="ShotgunGoblin" type="CharacterBody2D"]
+script = ExtResource("1_p6jre")
+stats = ExtResource("2_ijakq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_am461")
+animation = &"attack"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_p6jre")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -7.0
+offset_top = -11.0
+offset_right = 8.0
+offset_bottom = -9.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ijakq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ar3ot")
+show_percentage = false
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+target_desired_distance = 100.0
+
+[node name="ShootCooldown" type="Timer" parent="."]
+
+[node name="FlipCooldown" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="UpdatePathCooldown" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="RaycastCooldown" type="Timer" parent="."]
+wait_time = 0.3
+
+[node name="RayCast" type="ShapeCast2D" parent="."]
+shape = SubResource("RectangleShape2D_sxgmc")
+target_position = Vector2(100, 100)
