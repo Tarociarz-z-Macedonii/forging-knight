@@ -4,11 +4,13 @@ var item_in_world_template : PackedScene = preload("res://scenes/UI/inventory/it
 @onready var player = $"../../../Player"
 @onready var vbox = $"../VBoxContainer"
 @onready var container = $"../"
+var minimap_displayer 
 var command_used: bool
 var labels: Array[Label]
 var max_labels = 16
 
 func _ready() -> void:
+	minimap_displayer = get_node_or_null("../../../DungeonGenerator/MinimapDisplayer")
 	text_submitted.connect(_process_commands)	
 	
 func _process(delta: float) -> void:	
@@ -41,9 +43,9 @@ func _process_commands(text):
 	help(parts)
 	create(parts)
 	items(parts)
+	sun(parts)
 	if not command_used:
 		create_label("invalid command")
-	
 func help(parts):
 	if parts[0] == "help":
 		command_used = true
@@ -51,9 +53,10 @@ func help(parts):
 			create_label("this command does not have arguments")
 			return
 			
-		create_label("help - shows every commands")
+		create_label("help - shows every command")
 		create_label("create (id, amount, position x, position y) - creates item")
 		create_label("items - shows every item's id")
+		create_label("sun - shows every room on minimap")
 		
 func create(parts):
 	if parts[0] == "create":
@@ -87,7 +90,17 @@ func items(parts):
 		for key in keys:
 			create_label(key)
 		
-		
+func sun(parts):
+	if parts[0] == "sun":
+		command_used = true
+		if minimap_displayer == null:
+			create_label("can not use this command here")
+			return
+		if (len(parts) > 1):
+			create_label("this command does not have arguments")
+			return
+		minimap_displayer.sun()
+		create_label("minimap updated")
 		
 		
 		

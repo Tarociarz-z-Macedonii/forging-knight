@@ -73,3 +73,9 @@ func _update_room_icons():
 			icons[key].texture = DungeonDatabase.explored_icon
 		if room_gen.rooms[key].status == Enums.RoomStatus.CURRENT:
 			icons[key].texture = DungeonDatabase.current_icon
+
+func sun():
+	for key in room_gen.rooms:
+		if room_gen.rooms[key].status == Enums.RoomStatus.UNSEEN:
+			room_gen.rooms[key].status = Enums.RoomStatus.UNEXPLORED
+	_update_room_icons()

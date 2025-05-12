@@ -148,3 +148,4 @@ func _assign_openings(cords, temp_room):
 		temp_room.is_top_open = true
 	if is_room_existing(Vector2i(cords.x, cords.y + 1)):
 		temp_room.is_bottom_open = true
+		

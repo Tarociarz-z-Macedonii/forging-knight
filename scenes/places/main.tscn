@@ -54,6 +54,6 @@ shape = SubResource("CapsuleShape2D_2r4pp")
 position = Vector2(100, 0)
 
 [connection signal="body_shape_entered" from="Tilemap/HitBoxes/Area2D" to="Tilemap/HitBoxes/Area2D" method="_on_body_shape_entered"]
-[connection signal="body_shape_entered" from="Tilemap/HitBoxes/@Area2D@22092" to="Tilemap/HitBoxes/@Area2D@22092" method="_on_body_shape_entered"]
-[connection signal="body_shape_entered" from="Tilemap/HitBoxes/@Area2D@22093" to="Tilemap/HitBoxes/@Area2D@22093" method="_on_body_shape_entered"]
-[connection signal="body_shape_entered" from="Tilemap/HitBoxes/@Area2D@22094" to="Tilemap/HitBoxes/@Area2D@22094" method="_on_body_shape_entered"]
+[connection signal="body_shape_entered" from="Tilemap/HitBoxes/@Area2D@32910" to="Tilemap/HitBoxes/@Area2D@32910" method="_on_body_shape_entered"]
+[connection signal="body_shape_entered" from="Tilemap/HitBoxes/@Area2D@32911" to="Tilemap/HitBoxes/@Area2D@32911" method="_on_body_shape_entered"]
+[connection signal="body_shape_entered" from="Tilemap/HitBoxes/@Area2D@32912" to="Tilemap/HitBoxes/@Area2D@32912" method="_on_body_shape_entered"]
