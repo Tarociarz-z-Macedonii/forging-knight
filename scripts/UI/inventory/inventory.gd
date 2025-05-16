@@ -1,15 +1,22 @@
 extends Control
 class_name Inventory
 
+enum ActiveCategory {INVENTORY, BLUEPRINTS}
+
 signal inventory_opened
 signal inventory_closed
 signal inventory_updated
 
 @onready var hotbar : HBoxContainer
 @onready var grid : GridContainer = $UI/GridContainer
+@onready var blueprints : Control = $UI/Blueprints
+@onready var buttons : Control = $UI/Buttons
+@onready var item_button : Button = $UI/Buttons/Items
+@onready var blueprint_button : Button = $UI/Buttons/Blueprints
 var slots : Array[Slot] = []
 
 var is_open: bool = false
+var category: ActiveCategory = ActiveCategory.INVENTORY
 
 @export var hotbar_slots: Array[HotbarSlot] = [] 
 var active_slot_index: int = 0
@@ -23,6 +30,9 @@ func _ready():
 		slot.update_slot()
 	for hotbar_slot in hotbar_slots:
 		hotbar_slot.inventory = self
+		
+	item_button.pressed.connect(on_item_button)
+	blueprint_button.pressed.connect(on_blueprint_button)
 
 func _process(delta: float) -> void:
 	change_active_slots()
@@ -31,9 +41,25 @@ func _input(event):
 	if event.is_action_pressed("inventory"):
 		toggle_inventory()
 
+func on_item_button():
+	category = ActiveCategory.INVENTORY
+	blueprints.visible = false
+	grid.visible = true
+	
+func on_blueprint_button():
+	category = ActiveCategory.BLUEPRINTS
+	blueprints.visible = true
+	grid.visible = false
+
 func toggle_inventory():
 	is_open = not is_open
-	grid.visible = is_open
+	buttons.visible = is_open
+	if category == ActiveCategory.INVENTORY:
+		blueprints.visible = false
+		grid.visible = is_open
+	elif category == ActiveCategory.BLUEPRINTS:
+		grid.visible = false
+		blueprints.visible = is_open
 
 	if is_open:
 		emit_signal("inventory_opened")
