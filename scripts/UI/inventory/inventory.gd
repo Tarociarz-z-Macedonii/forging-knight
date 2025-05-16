@@ -9,7 +9,7 @@ signal inventory_updated
 
 @onready var hotbar : HBoxContainer
 @onready var grid : GridContainer = $UI/GridContainer
-@onready var blueprints : Control = $UI/Blueprints
+@onready var blueprints : Node = $UI/Blueprints
 @onready var buttons : Control = $UI/Buttons
 @onready var item_button : Button = $UI/Buttons/Items
 @onready var blueprint_button : Button = $UI/Buttons/Blueprints
