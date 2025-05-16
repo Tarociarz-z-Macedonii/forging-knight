@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://sm4hec8dvj33"]
 
-[ext_resource type="Resource" uid="uid://q6n7oy1ek7qf" path="res://scenes/other/dummy_loot.tres" id="1_o752o"]
+[ext_resource type="Resource" uid="uid://q6n7oy1ek7qf" path="res://scenes/other/dummy/dummy_loot.tres" id="1_o752o"]
 [ext_resource type="Script" uid="uid://clrbaw8y5nyjp" path="res://scripts/resources/enemy_stats.gd" id="2_rri5g"]
 
 [resource]

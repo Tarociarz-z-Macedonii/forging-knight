@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bow4kyl1mxj6x"]
+
+[ext_resource type="Script" uid="uid://dufre25fqtycv" path="res://scripts/other/blueprint/blueprint_manager.gd" id="1_cp25m"]
+
+[node name="BlueprintManager" type="Node2D"]
+script = ExtResource("1_cp25m")

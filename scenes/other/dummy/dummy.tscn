@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://44gou4tnmhyj" path="res://sprites/decorations/dummy.png" id="1_k7e7g"]
 [ext_resource type="Script" uid="uid://cqcat8a2c2jy0" path="res://scripts/other/dummy/dummy.gd" id="1_lk4ub"]
-[ext_resource type="Resource" uid="uid://sm4hec8dvj33" path="res://scenes/other/dummy_stats.tres" id="2_ouqss"]
+[ext_resource type="Resource" uid="uid://sm4hec8dvj33" path="res://scenes/other/dummy/dummy_stats.tres" id="2_ouqss"]
 [ext_resource type="FontFile" uid="uid://du62clawr6qeb" path="res://fonts/TeenyTinyPixls.ttf" id="3_6q3js"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lk4ub"]
