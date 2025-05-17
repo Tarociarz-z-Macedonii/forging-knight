@@ -122,11 +122,11 @@ func remove_item(item: ItemStats, amount: int = 1) -> bool:
 			remaining -= remove_amount
 			
 			if slot.amount <= 0:
-				blueprint_manager.update_items_amounts(slot.item.item_name, -remove_amount)
+				blueprint_manager.update_items_amounts(item.item_name, -remove_amount)
 				slot.clear_slot()
 				
 			if remaining <= 0:
-				blueprint_manager.update_items_amounts(slot.item.item_name, -amount)
+				blueprint_manager.update_items_amounts(item.item_name, -amount)
 				slot.update_slot()
 				emit_signal("inventory_updated")
 				return true

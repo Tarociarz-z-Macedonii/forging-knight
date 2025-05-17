@@ -16,6 +16,7 @@ height = 16.0
 scale = Vector2(6, 6)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("5_3vxdv")]
+layer = 10
 
 [node name="Tilemap" type="Node2D" parent="."]
 z_index = -6
