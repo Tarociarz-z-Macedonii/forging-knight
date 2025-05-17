@@ -1,12 +1,16 @@
 extends Node2D
 
-@onready var inventory = $"../../../../../"
+@onready var inventory = $"../Inventory"
 @onready var vgrid = $"../Inventory/UI/Blueprints/VGrid"
 @onready var craft: PackedScene = load("res://scenes/UI/blueprint/blueprint_create.tscn")
 @onready var craft_material: PackedScene = load("res://scenes/UI/blueprint/material.tscn")
 @onready var blueprint_materials = []
 
 var blueprints: Array[BlueprintData]
+var items_amounts: Dictionary[String, int] = {}
+
+func _ready() -> void:
+	inventory.inventory_updated.connect(update_amounts)
 
 func add_blueprint(blueprint: BlueprintData):
 	blueprints.append(blueprint)
@@ -25,8 +29,27 @@ func add_blueprint(blueprint: BlueprintData):
 		var amount: BlueprintMaterialLabel = inst_craft_material.get_node("Amount")
 		input.texture = blueprint.input[i].item.sprite
 		amount.max_amount = blueprint.input[i].amount
-
-		amount.amount = inventory.items_amounts[blueprint.input[i].item.item_name]
+		amount.item_name = blueprint.input[i].item.item_name
+		amount.amount = get_items_amounts(amount.item_name)
 		amount.set_amount()
+
+func update_items_amounts(item_name: String, amount: int):
+	if items_amounts.get(item_name) == null:
+		items_amounts[item_name] = amount
+		return
+	items_amounts[item_name] += amount
+	print('added')
+	print(items_amounts[item_name])
+	if items_amounts[item_name] < 0:
+		items_amounts[item_name] = 0
 		
-	print('blueprint added')
+func get_items_amounts(item_name: String):
+	if items_amounts.get(item_name) == null:
+		return 0
+	return items_amounts[item_name]
+	
+func update_amounts():
+	for material in blueprint_materials:
+		var amount: BlueprintMaterialLabel = material.get_node("Amount")
+		amount.amount = get_items_amounts(amount.item_name)
+		amount.set_amount()

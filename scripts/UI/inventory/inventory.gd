@@ -13,13 +13,13 @@ signal inventory_updated
 @onready var buttons : Control = $UI/Buttons
 @onready var item_button : Button = $UI/Buttons/Items
 @onready var blueprint_button : Button = $UI/Buttons/Blueprints
+@onready var blueprint_manager : Node2D = $"../BlueprintManager"
 var slots : Array[Slot] = []
 @export var hotbar_slots: Array[HotbarSlot] = [] 
 
 var is_open: bool = false
 var category: ActiveCategory = ActiveCategory.INVENTORY
 var active_slot_index: int = 0
-var items_amounts: Dictionary[String, int] = {}
 
 func _ready():
 	slots = []
@@ -66,14 +66,6 @@ func toggle_inventory():
 	else:
 		emit_signal("inventory_closed")
 
-func update_items_amounts(item_name: String, amount: int):
-	if items_amounts.get(item_name) == null:
-		items_amounts[item_name] = amount
-		return
-	items_amounts[item_name] += amount
-	if items_amounts[item_name] < 0:
-		items_amounts[item_name] = 0
-
 func add_item(item_stack: ItemStack) -> ItemStack:
 	if not item_stack or item_stack.is_empty():
 		return null
@@ -91,7 +83,7 @@ func add_item(item_stack: ItemStack) -> ItemStack:
 				slot.update_slot()
 				
 				if item_stack.count <= 0:
-					update_items_amounts(item_stack.item.item_name, slot.amount)
+					blueprint_manager.update_items_amounts(item_stack.item.item_name, add_amount)
 					emit_signal("inventory_updated")
 					return null
 					
@@ -102,7 +94,7 @@ func add_item(item_stack: ItemStack) -> ItemStack:
 			item_stack.count -= add_count
 			
 			if item_stack.count <= 0:
-				update_items_amounts(item_stack.item.item_name, slot.amount)
+				blueprint_manager.update_items_amounts(item_stack.item.item_name, slot.amount)
 				emit_signal("inventory_updated")
 				return null
 				
@@ -130,11 +122,11 @@ func remove_item(item: ItemStats, amount: int = 1) -> bool:
 			remaining -= remove_amount
 			
 			if slot.amount <= 0:
-				update_items_amounts(slot.item.item_name, slot.amount)
+				blueprint_manager.update_items_amounts(slot.item.item_name, remove_amount)
 				slot.clear_slot()
 				
 			if remaining <= 0:
-				update_items_amounts(slot.item.item_name, 0)
+				blueprint_manager.update_items_amounts(slot.item.item_name, 0)
 				emit_signal("inventory_updated")
 				return true
 				

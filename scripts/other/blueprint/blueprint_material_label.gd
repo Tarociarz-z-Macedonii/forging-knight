@@ -1,6 +1,6 @@
 class_name BlueprintMaterialLabel
 extends Label
-var item: ItemStats
+var item_name: String
 var max_amount: int
 var amount: int
 
