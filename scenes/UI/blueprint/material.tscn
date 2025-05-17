@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ccj43pf0ijj14" path="res://sprites/items/materials/tier1/ruby.png" id="1_0bu1l"]
 [ext_resource type="FontFile" uid="uid://du62clawr6qeb" path="res://fonts/TeenyTinyPixls.ttf" id="2_cv6re"]
-[ext_resource type="Script" uid="uid://tnc2tqkwsyjb" path="res://scripts/other/blueprint/blueprint_material_label.gd" id="3_cv6re"]
+[ext_resource type="Script" uid="uid://tnc2tqkwsyjb" path="res://scripts/UI/blueprint/blueprint_material_label.gd" id="3_cv6re"]
 
 [sub_resource type="FontVariation" id="FontVariation_bnada"]
 base_font = ExtResource("2_cv6re")

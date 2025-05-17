@@ -1,3 +1,4 @@
+class_name BlueprintManager
 extends Node2D
 
 @onready var inventory = $"../Inventory"
@@ -14,15 +15,16 @@ func _ready() -> void:
 
 func add_blueprint(blueprint: BlueprintData):
 	blueprints.append(blueprint)
-	#creates UI
-	var inst_craft = craft.instantiate()
+	#creates UIw
+	var inst_craft: BlueprintCreate = craft.instantiate()
+	inst_craft.blueprint = blueprint
 	vgrid.add_child(inst_craft)
 	var output: TextureRect = inst_craft.get_node("Output")
 	var output_name: Label = inst_craft.get_node("Name")
 	output.texture = blueprint.output.sprite
 	output_name.text = blueprint.output.item_name
 	for i in range(blueprint.input.size()):
-		var inst_craft_material = craft_material.instantiate()
+		var inst_craft_material: HBoxContainer = craft_material.instantiate()
 		inst_craft.add_child(inst_craft_material)
 		blueprint_materials.push_back(inst_craft_material)
 		var input: TextureRect = inst_craft_material.get_node("Input")

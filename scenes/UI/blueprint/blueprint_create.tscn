@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkkodgx1je86o"]
+[gd_scene load_steps=7 format=3 uid="uid://bkkodgx1je86o"]
 
 [ext_resource type="FontFile" uid="uid://du62clawr6qeb" path="res://fonts/TeenyTinyPixls.ttf" id="1_k4lya"]
+[ext_resource type="Script" uid="uid://b7laif2v27i2n" path="res://scripts/UI/blueprint/blueprint_create.gd" id="1_ljre2"]
+[ext_resource type="Script" uid="uid://cr34klwyhno2k" path="res://scripts/UI/blueprint/blueprint_create_button.gd" id="2_k4lya"]
 [ext_resource type="Texture2D" uid="uid://dubx616qe8wgg" path="res://sprites/items/weapons/tier1/sword/sword.png" id="2_ljre2"]
 
 [sub_resource type="FontVariation" id="FontVariation_st0or"]
@@ -12,6 +14,7 @@ base_font = ExtResource("1_k4lya")
 [node name="BlueprintCreate" type="HBoxContainer"]
 z_index = 5
 custom_minimum_size = Vector2(64, 64)
+script = ExtResource("1_ljre2")
 
 [node name="ButonParent" type="Control" parent="."]
 custom_minimum_size = Vector2(128, 0)
@@ -31,6 +34,7 @@ grow_vertical = 2
 theme_override_fonts/font = SubResource("FontVariation_st0or")
 theme_override_font_sizes/font_size = 20
 text = "Craft"
+script = ExtResource("2_k4lya")
 
 [node name="Output" type="TextureRect" parent="."]
 z_index = 5
