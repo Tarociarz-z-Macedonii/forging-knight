@@ -47,6 +47,6 @@ bullet_number = 1
 auto_swing = false
 distance_from_player = 5.0
 sprite = ExtResource("2_2w5yx")
-item_name = "default name"
+item_name = "Void Orb"
 description = "default description of this amazing item because this item is very very amazing"
 metadata/_custom_type_script = "uid://gg0deibfccbj"

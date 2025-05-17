@@ -29,6 +29,6 @@ bullet_number = 1
 auto_swing = true
 distance_from_player = 5.0
 sprite = ExtResource("3_f1d03")
-item_name = "default name"
+item_name = "Sword"
 description = "default description of this amazing item because this item is very very amazing"
 metadata/_custom_type_script = "uid://gg0deibfccbj"
