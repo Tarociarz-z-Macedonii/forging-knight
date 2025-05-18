@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://050j6qot2308"]
+
+[ext_resource type="Texture2D" uid="uid://b3x7773l7dedp" path="res://sprites/chest/chest.png" id="1_dpw4w"]
+[ext_resource type="Script" uid="uid://cphkqpg5byeuv" path="res://scripts/dungeon_generator/chest.gd" id="1_im2jd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_im2jd"]
+atlas = ExtResource("1_dpw4w")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jox7d"]
+atlas = ExtResource("1_dpw4w")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hmkw"]
+atlas = ExtResource("1_dpw4w")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m05f1"]
+atlas = ExtResource("1_dpw4w")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hejvc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_im2jd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jox7d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hmkw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m05f1")
+}],
+"loop": false,
+"name": &"open",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjcya"]
+size = Vector2(16, 14)
+
+[node name="Chest" type="StaticBody2D"]
+script = ExtResource("1_im2jd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hejvc")
+animation = &"open"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_kjcya")

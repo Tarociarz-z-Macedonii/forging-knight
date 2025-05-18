@@ -28,5 +28,5 @@ attack_cooldown_min = 4.0
 attack_cooldown_max = 5.0
 loot_table = ExtResource("1_hd3do")
 bullet_num = 4
-equal_spread = 10.0
+equal_spread = 25.0
 metadata/_custom_type_script = "uid://clrbaw8y5nyjp"

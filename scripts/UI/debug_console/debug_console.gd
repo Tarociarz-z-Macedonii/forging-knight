@@ -25,7 +25,7 @@ func _enable_and_disable():
 			clear()
 
 func create_label(message):
-	var label = Label.new()
+	var label: Label = Label.new()
 	label.text = message
 	vbox.add_child(label)
 	labels.push_front(label)
