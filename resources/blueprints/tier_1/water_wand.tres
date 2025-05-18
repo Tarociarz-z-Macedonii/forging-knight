@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BlueprintData" load_steps=6 format=3 uid="uid://d262og6sc507d"]
+
+[ext_resource type="Script" uid="uid://cx1ixdmcsiq2d" path="res://scripts/resources/blueprint/blueprint_material.gd" id="1_jlvvh"]
+[ext_resource type="Resource" uid="uid://e8jec17g6tpx" path="res://resources/materials/ruby.tres" id="2_g7rw7"]
+[ext_resource type="Script" uid="uid://bgawrm8gl5tkv" path="res://scripts/resources/blueprint/blueprint_data.gd" id="2_q13n5"]
+[ext_resource type="Resource" uid="uid://ck3y87epr4lay" path="res://resources/weapons/tier_1/water_wand.tres" id="3_6atmd"]
+
+[sub_resource type="Resource" id="Resource_njlvf"]
+script = ExtResource("1_jlvvh")
+item = ExtResource("2_g7rw7")
+amount = 3
+metadata/_custom_type_script = "uid://cx1ixdmcsiq2d"
+
+[resource]
+script = ExtResource("2_q13n5")
+input = Array[ExtResource("1_jlvvh")]([SubResource("Resource_njlvf")])
+output = ExtResource("3_6atmd")
+metadata/_custom_type_script = "uid://bgawrm8gl5tkv"

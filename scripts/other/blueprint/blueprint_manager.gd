@@ -13,9 +13,16 @@ var items_amounts: Dictionary[String, int] = {}
 func _ready() -> void:
 	inventory.inventory_updated.connect(update_amounts)
 
+func _has_blueprint(some_blueprint: BlueprintData):
+	for blueprint in blueprints:
+		if some_blueprint == blueprint:
+			return true
+	return false
+
 func add_blueprint(blueprint: BlueprintData):
+	if _has_blueprint(blueprint):
+		return
 	blueprints.append(blueprint)
-	#creates UIw
 	var inst_craft: BlueprintCreate = craft.instantiate()
 	inst_craft.blueprint = blueprint
 	vgrid.add_child(inst_craft)
