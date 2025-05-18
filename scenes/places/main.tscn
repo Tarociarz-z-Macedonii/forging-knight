@@ -1,11 +1,9 @@
-[gd_scene load_steps=10 format=4 uid="uid://dwqseoo600wbk"]
+[gd_scene load_steps=8 format=4 uid="uid://dwqseoo600wbk"]
 
 [ext_resource type="TileSet" uid="uid://b3syij3w5ypsf" path="res://animations_and_tilesets/tileset.tres" id="3_q5a5b"]
 [ext_resource type="PackedScene" uid="uid://csntqod327868" path="res://scenes/UI/canvas_layer.tscn" id="5_3vxdv"]
 [ext_resource type="PackedScene" uid="uid://vntnhm8hh417" path="res://scenes/player/player.tscn" id="6_d53s4"]
-[ext_resource type="PackedScene" uid="uid://bo4lyxnsuewmi" path="res://scenes/other/blueprint/blueprint_drop.tscn" id="6_n56gn"]
 [ext_resource type="Texture2D" uid="uid://yd6s8mqdo346" path="res://sprites/decorations/tabel.png" id="7_8hr41"]
-[ext_resource type="Resource" uid="uid://deotqpamal4be" path="res://resources/blueprints/tier_1/sword.tres" id="7_bxbx3"]
 [ext_resource type="PackedScene" uid="uid://ctdi4epxwspfx" path="res://scenes/other/dummy/dummy.tscn" id="8_2tw74"]
 [ext_resource type="PackedScene" uid="uid://050j6qot2308" path="res://scenes/dungeon_generator/chest.tscn" id="8_x5n66"]
 
@@ -56,9 +54,6 @@ shape = SubResource("CapsuleShape2D_2r4pp")
 
 [node name="Dummy" parent="." instance=ExtResource("8_2tw74")]
 position = Vector2(100, 0)
-
-[node name="Blueprint" parent="." instance=ExtResource("6_n56gn")]
-data = ExtResource("7_bxbx3")
 
 [node name="Chest" parent="." instance=ExtResource("8_x5n66")]
 position = Vector2(42.1667, 28)

@@ -1,10 +1,11 @@
-[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://b3syij3w5ypsf"]
+[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://b3syij3w5ypsf"]
 
 [ext_resource type="Texture2D" uid="uid://ds1qtla2a7gif" path="res://sprites/tileset/tileset.png" id="1_2powo"]
 [ext_resource type="PackedScene" uid="uid://6hma8pamq61r" path="res://scenes/hitboxes/dungeon_entrance.tscn" id="2_j8c3x"]
 [ext_resource type="PackedScene" uid="uid://qlm3d86ap1l5" path="res://scenes/hitboxes/room_entrance.tscn" id="3_j8c3x"]
 [ext_resource type="PackedScene" uid="uid://g2kr5y6da2w" path="res://scenes/enemies/goblin.tscn" id="4_ahjqa"]
 [ext_resource type="PackedScene" uid="uid://bx0qrg8nokekn" path="res://scenes/enemies/shotgun_goblin.tscn" id="5_vrtqm"]
+[ext_resource type="PackedScene" uid="uid://050j6qot2308" path="res://scenes/dungeon_generator/chest.tscn" id="6_mttul"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mh4cp"]
 texture = ExtResource("1_2powo")
@@ -147,8 +148,13 @@ resource_name = "Enemies"
 scenes/1/scene = ExtResource("4_ahjqa")
 scenes/2/scene = ExtResource("5_vrtqm")
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_dnqg8"]
+resource_name = "Decorations"
+scenes/1/scene = ExtResource("6_mttul")
+
 [resource]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_mh4cp")
 sources/1 = SubResource("TileSetScenesCollectionSource_sgyb6")
 sources/2 = SubResource("TileSetScenesCollectionSource_vrtqm")
+sources/3 = SubResource("TileSetScenesCollectionSource_dnqg8")

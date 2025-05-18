@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BlueprintData" load_steps=6 format=3 uid="uid://gsgtgi11ws4r"]
+
+[ext_resource type="Script" uid="uid://cx1ixdmcsiq2d" path="res://scripts/resources/blueprint/blueprint_material.gd" id="1_lk6gv"]
+[ext_resource type="Resource" uid="uid://e8jec17g6tpx" path="res://resources/materials/ruby.tres" id="2_mykwe"]
+[ext_resource type="Resource" uid="uid://bpqhogdu7me3k" path="res://resources/weapons/tier_1/void_orb.tres" id="3_lk6gv"]
+[ext_resource type="Script" uid="uid://bgawrm8gl5tkv" path="res://scripts/resources/blueprint/blueprint_data.gd" id="4_g2cb8"]
+
+[sub_resource type="Resource" id="Resource_njlvf"]
+script = ExtResource("1_lk6gv")
+item = ExtResource("2_mykwe")
+amount = 20
+metadata/_custom_type_script = "uid://cx1ixdmcsiq2d"
+
+[resource]
+script = ExtResource("4_g2cb8")
+input = Array[ExtResource("1_lk6gv")]([SubResource("Resource_njlvf")])
+output = ExtResource("3_lk6gv")
+metadata/_custom_type_script = "uid://bgawrm8gl5tkv"

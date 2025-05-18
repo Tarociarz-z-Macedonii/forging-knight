@@ -10,7 +10,7 @@ var minimap_background_packed = preload('res://scenes/dungeon_generator/minimap_
 var walls: PackedScene = preload("res://scenes/dungeon_generator/room_walls.tscn")
 
 var rooms = {
-	"starter": preload('res://scenes/dungeon_generator/rooms/chests/tier_1/scratches.tscn'),
+	"starter": preload('res://scenes/dungeon_generator/rooms/starter.tscn'),
 	"enemies": { "tier_1": [] },
 	"chests":  { "tier_1": [] },
 	"bosses":  { "tier_1": [] }
