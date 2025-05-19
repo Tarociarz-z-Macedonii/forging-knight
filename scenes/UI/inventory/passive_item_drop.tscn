@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://kytlwj50gq77"]
+
+[ext_resource type="Script" uid="uid://sdmc7y5aulii" path="res://scripts/passive_items/passive_item_drop.gd" id="1_inatm"]
+[ext_resource type="Texture2D" uid="uid://ccj43pf0ijj14" path="res://sprites/items/materials/tier1/ruby.png" id="2_1wdfy"]
+[ext_resource type="FontFile" uid="uid://du62clawr6qeb" path="res://fonts/TeenyTinyPixls.ttf" id="3_428o0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6tdqx"]
+radius = 11.0
+
+[node name="ItemDrop" type="Node2D"]
+z_index = 5
+script = ExtResource("1_inatm")
+
+[node name="ItemSprite" type="Sprite2D" parent="."]
+position = Vector2(5.36442e-07, 9.53674e-07)
+texture = ExtResource("2_1wdfy")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_6tdqx")
+
+[node name="Amount" type="Label" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 163.0
+offset_bottom = 124.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.03, 0.03)
+theme_override_fonts/font = ExtResource("3_428o0")
+theme_override_font_sizes/font_size = 100
+text = "64"
+horizontal_alignment = 2
+vertical_alignment = 2

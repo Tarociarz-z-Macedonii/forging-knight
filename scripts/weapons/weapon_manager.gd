@@ -11,6 +11,9 @@ var bullet_num: int = 0
 
 var weapon_template = preload("res://scenes/weapons/weapon_template.tscn")
 
+func add_to_weapon_statistic(weapon: Weapon):
+	weapon.bullet_number += bullet_num
+
 func equip_weapon(weapon_stats):
 	if weapon_stats == null:
 		if current_weapon != null:
@@ -24,6 +27,7 @@ func equip_weapon(weapon_stats):
 	distance_from_player = weapon_stats.distance_from_player
 	add_child(current_weapon)
 	firstScale = current_weapon.scale.x
+	add_to_weapon_statistic(current_weapon)
 
 func _flip_weapon():
 	var mousePos = get_global_mouse_position()

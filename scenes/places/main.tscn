@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://dwqseoo600wbk"]
+[gd_scene load_steps=9 format=4 uid="uid://dwqseoo600wbk"]
 
 [ext_resource type="TileSet" uid="uid://b3syij3w5ypsf" path="res://animations_and_tilesets/tileset.tres" id="3_q5a5b"]
 [ext_resource type="PackedScene" uid="uid://csntqod327868" path="res://scenes/UI/canvas_layer.tscn" id="5_3vxdv"]
 [ext_resource type="PackedScene" uid="uid://vntnhm8hh417" path="res://scenes/player/player.tscn" id="6_d53s4"]
 [ext_resource type="Texture2D" uid="uid://yd6s8mqdo346" path="res://sprites/decorations/tabel.png" id="7_8hr41"]
+[ext_resource type="PackedScene" uid="uid://kytlwj50gq77" path="res://scenes/UI/inventory/passive_item_drop.tscn" id="7_bxbx3"]
 [ext_resource type="PackedScene" uid="uid://ctdi4epxwspfx" path="res://scenes/other/dummy/dummy.tscn" id="8_2tw74"]
 [ext_resource type="PackedScene" uid="uid://050j6qot2308" path="res://scenes/dungeon_generator/chest.tscn" id="8_x5n66"]
 
@@ -58,7 +59,10 @@ position = Vector2(100, 0)
 [node name="Chest" parent="." instance=ExtResource("8_x5n66")]
 position = Vector2(42.1667, 28)
 
+[node name="ItemDrop" parent="." instance=ExtResource("7_bxbx3")]
+position = Vector2(-50, -5)
+
 [connection signal="body_shape_entered" from="Tilemap/HitBoxes/Area2D" to="Tilemap/HitBoxes/Area2D" method="_on_body_shape_entered"]
-[connection signal="body_shape_entered" from="Tilemap/HitBoxes/@Area2D@22092" to="Tilemap/HitBoxes/@Area2D@22092" method="_on_body_shape_entered"]
-[connection signal="body_shape_entered" from="Tilemap/HitBoxes/@Area2D@22093" to="Tilemap/HitBoxes/@Area2D@22093" method="_on_body_shape_entered"]
-[connection signal="body_shape_entered" from="Tilemap/HitBoxes/@Area2D@22094" to="Tilemap/HitBoxes/@Area2D@22094" method="_on_body_shape_entered"]
+[connection signal="body_shape_entered" from="Tilemap/HitBoxes/@Area2D@30664" to="Tilemap/HitBoxes/@Area2D@30664" method="_on_body_shape_entered"]
+[connection signal="body_shape_entered" from="Tilemap/HitBoxes/@Area2D@30665" to="Tilemap/HitBoxes/@Area2D@30665" method="_on_body_shape_entered"]
+[connection signal="body_shape_entered" from="Tilemap/HitBoxes/@Area2D@30666" to="Tilemap/HitBoxes/@Area2D@30666" method="_on_body_shape_entered"]
