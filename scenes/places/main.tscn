@@ -57,3 +57,8 @@ position = Vector2(100, 0)
 
 [node name="Chest" parent="." instance=ExtResource("8_x5n66")]
 position = Vector2(42.1667, 28)
+
+[connection signal="body_shape_entered" from="Tilemap/HitBoxes/Area2D" to="Tilemap/HitBoxes/Area2D" method="_on_body_shape_entered"]
+[connection signal="body_shape_entered" from="Tilemap/HitBoxes/@Area2D@22092" to="Tilemap/HitBoxes/@Area2D@22092" method="_on_body_shape_entered"]
+[connection signal="body_shape_entered" from="Tilemap/HitBoxes/@Area2D@22093" to="Tilemap/HitBoxes/@Area2D@22093" method="_on_body_shape_entered"]
+[connection signal="body_shape_entered" from="Tilemap/HitBoxes/@Area2D@22094" to="Tilemap/HitBoxes/@Area2D@22094" method="_on_body_shape_entered"]

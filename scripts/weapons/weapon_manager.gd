@@ -6,6 +6,9 @@ var distance_from_player: float = 45
 var firstScale: float 
 var angle: float
 
+#Add to weapon stats
+var bullet_num: int = 0
+
 var weapon_template = preload("res://scenes/weapons/weapon_template.tscn")
 
 func equip_weapon(weapon_stats):
